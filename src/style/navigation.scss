@@ -1,0 +1,28 @@
+@import '../style/variables.scss';
+
+.navigation {
+   ul {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+
+    li {
+        margin-right: 1rem;
+        list-style: none;
+    }
+
+    button {
+        background-color: $accent1;
+      
+
+       a {
+          text-decoration: inherit;
+          color:$grey700;
+          font-weight: bold;
+       }
+    }
+   }
+
+    
+}
+
