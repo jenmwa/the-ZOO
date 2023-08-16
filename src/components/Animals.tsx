@@ -2,18 +2,13 @@ import { useEffect, useState } from "react"
 import { IAnimal } from "../models/IAnimal"
 import axios from "axios"
 import '../style/animal.scss'
+import { AnimalCard } from "./AnimalCard"
 
 export const Animals = () => {
 
   const [animals, setAnimals] = useState<IAnimal[]>([])
 
-  //FÖRST CHECKA sessionStorage
-  //OM sessionSTorage = true, rendera lista
-  //annars hämta API
-  //lägg i sessionStorage
-
-  //flytta till servicefil
-
+  //flytta till servicefil båda
   useEffect(() => {
     const getAnimalsFromStorage = sessionStorage.getItem('animals');
     if (getAnimalsFromStorage) {
@@ -38,31 +33,28 @@ export const Animals = () => {
     }
   })
 
-  const html = animals.map((animal) => (
-    <div key={animal.id}>
-      <p>{animal.name}</p>
-      <div className='image-container'>
-        <img
-          src={animal.imageUrl}
-          alt={animal.name}
-          onError={({ currentTarget }) => {
-            currentTarget.onerror = null;
-            currentTarget.src = 'public/img_not_found.png';
-          }}
-        />
-      </div>
-    </div>
-  ))
+  // const html = animals.map((animal) => (
+  //   <div key={animal.id}>
+  //     <p>{animal.name}</p>
+  //     <div className='image-container'>
+  //       <img
+  //         src={animal.imageUrl}
+  //         alt={animal.name}
+  //         onError={({ currentTarget }) => {
+  //           currentTarget.onerror = null;
+  //           currentTarget.src = 'public/img_not_found.png';
+  //         }}
+  //       />
+  //     </div>
+  //   </div>
+  // ))
 
   return <>
-    <p>Animalspresentation</p>
-    <p>Render all AnimalCard</p>
-    <>
-
-
+    <p>Render all AnimalCard in Animals</p>
+    <AnimalCard animals={animals}></AnimalCard>
+    {/* <>
       {html}
-
-    </>
+    </> */}
 
   </>
 }
