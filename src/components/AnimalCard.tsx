@@ -33,3 +33,4 @@ export const AnimalCard = ({animals}:IAnimalProps) => {
 
   </>
 }
+//syfte: djurkort info

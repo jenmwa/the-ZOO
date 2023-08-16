@@ -8,7 +8,7 @@ export const Animals = () => {
 
   const [animals, setAnimals] = useState<IAnimal[]>([])
 
-  //flytta till servicefil båda
+  //flytta till servicefil 
   useEffect(() => {
     const getAnimalsFromStorage = sessionStorage.getItem('animals');
     if (getAnimalsFromStorage) {
@@ -16,8 +16,9 @@ export const Animals = () => {
       setAnimals(getAnimalsFromStorageParsed)
     }
   }, [])
+  //få bort denna dependency array med villkor
 
-
+  //flytta till servicefil 
   useEffect(() => {
     const getData = async () => {
       try {
@@ -58,3 +59,5 @@ export const Animals = () => {
 
   </>
 }
+
+//syfte: Hämta data!
