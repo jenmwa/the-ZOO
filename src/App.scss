@@ -1,3 +1,5 @@
+@import '/src/style/variables.scss';
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +41,9 @@
 
 .read-the-docs {
   color: #888;
+}
+
+h2 {
+  font-family: $FontHeading;
+color: $primary1;
 }
