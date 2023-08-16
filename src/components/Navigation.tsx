@@ -7,7 +7,7 @@ export const Navigation = () => {
       <ul>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
-        <li><button><Link to='/animals'>Animals</Link></button></li>
+        <li><Link to='/animals'><button>Animals</button></Link></li>
       </ul>
     </nav>
   </>

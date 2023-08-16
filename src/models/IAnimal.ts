@@ -8,3 +8,16 @@
 // "medicine":"Inga",
 // "isFed":false,
 // "lastFed":"2021-04-15T14:09:02.5912482"}
+
+export interface IAnimal {
+    id: number,
+    name: string,
+    latinName: string,
+    yearOfBirth: number,
+    shortDescription: string,
+    longDescription: string,
+    imageUrl: string,
+    medicine: string,
+    isFed: boolean,
+    lastFed: string, //Date
+}
