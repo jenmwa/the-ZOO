@@ -5,10 +5,10 @@
   margin-bottom: 2rem;
   width: 370px;
   height: 100%;
-  // padding: 1rem;;
 
-  &:hover {
+  &:hover, &:active {
     cursor: pointer;
+    outline: 4px solid  $secondary1;
   }
 }
 
