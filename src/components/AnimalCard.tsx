@@ -10,13 +10,13 @@ export const AnimalCard = ({ animals }: IAnimalProps) => {
 
   const navigate = useNavigate();
 
-  const handleClick = (id: number) => {
-    console.log('click on: ', id);
-    navigate('/animal/' + id)
+  const handleClick = (animal: IAnimal) => {
+    console.log('click on: ', animal.id);
+    navigate('/animal/'+ animal.id)
   }
 
   const html = animals.map((animal) => (
-    <div key={animal.id} className='animal-card-container' onClick={() => handleClick(animal.id)}>
+    <div key={animal.id} className='animal-card-container' onClick={() => handleClick(animal)}>
       <span className='animal-name'>{animal.name}</span>
       <div className='animal-image-container'>
         <img

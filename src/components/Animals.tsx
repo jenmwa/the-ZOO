@@ -3,10 +3,11 @@ import { IAnimal } from "../models/IAnimal"
 import axios from "axios"
 import '../style/animal.scss'
 import { AnimalCard } from "./AnimalCard"
+import { useAnimalContext } from "./AnimalContext"
 
 export const Animals = () => {
 
-  const [animals, setAnimals] = useState<IAnimal[]>([])
+  const { animals, setAnimals } = useAnimalContext();
   const [isLoading, setIsLoading] = useState(true);
 
   //flytta till servicefil 

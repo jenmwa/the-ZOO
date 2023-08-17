@@ -5,8 +5,6 @@ import { Animal } from "./components/Animal";
 import { Layout } from "./components/Layout";
 import { About } from "./components/About";
 
-//const [animals, setAnimals] = useState([]);
-
 export const router = createBrowserRouter([
   {
     path: '/',
