@@ -5,7 +5,7 @@ export const Navigation = () => {
   return <>
     <nav className='navigation'>
       <div className='logo-container'>
-        <img src='public/logo_light.png' alt='the zoo logo' width={150} />
+        <img src='/logo_light.png' alt='the zoo logo' width={150} />
       </div>
       <div className='menu'>
         <ul>
