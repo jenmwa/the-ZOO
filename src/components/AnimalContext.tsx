@@ -34,4 +34,5 @@ export const useAnimalContext = () => {
 };
 
 //go to App, put RouterProvider inside <AnimalProvider>
+//https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/context/
 //https://blog.logrocket.com/how-to-use-react-context-typescript/
