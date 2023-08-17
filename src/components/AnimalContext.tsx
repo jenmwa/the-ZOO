@@ -9,7 +9,7 @@ interface IAnimalContextValue {
 }
 //setState React typescript type: setValue : React.Dispatch<React.SetStateAction<any>>
 
-//step3 createContext. context value will be povided by AnimalProvider
+//step3 createContext. context value will be provided by AnimalProvider
 const AnimalContext = createContext<IAnimalContextValue | undefined>(undefined);
 
 //step4: Context provider. responsible for providing the context value to its descendants.
