@@ -2,7 +2,6 @@ import '../style/animal.scss'
 import { useNavigate, useParams } from "react-router-dom"
 // import { useAnimalContext } from './AnimalContext';
 import { IAnimal } from '../models/IAnimal';
-// import { AnimalDetails } from './AnimalDetails';
 import { useState } from 'react';
 import { AnimalDetails } from './AnimalDetails';
 
@@ -32,7 +31,10 @@ export const Animal = () => {
     setAnimals(updatedAnimals);
     sessionStorage.setItem('animals', JSON.stringify(updatedAnimals));
     console.log(animals);
+    setFedTime(animal);
+  }
 
+  const setFedTime = (animal: IAnimal) => {
     const date = new Date();
     console.log(date)
 
@@ -81,7 +83,7 @@ export const Animal = () => {
         clickToFeed={clickToFeed}
       />
     ) : (
-      <p>Loading or not found</p>
+      <p>Laddar sidan...</p>
     )}
   </>
 }

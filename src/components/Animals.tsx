@@ -14,8 +14,6 @@ export const Animals = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   //flytta till servicefil 
-  //Hämta på knapptrycken "VÅRA DJUR"? 
-  // ha kvar hämta sessionStorage här men flytta api till parent
   useEffect(() => {
     const getAnimalsFromStorage = sessionStorage.getItem('animals');
     if (getAnimalsFromStorage) {
@@ -45,32 +43,12 @@ export const Animals = () => {
     }
   })
 
-  // const html = animals.map((animal) => (
-  //   <div key={animal.id}>
-  //     <p>{animal.name}</p>
-  //     <div className='image-container'>
-  //       <img
-  //         src={animal.imageUrl}
-  //         alt={animal.name}
-  //         onError={({ currentTarget }) => {
-  //           currentTarget.onerror = null;
-  //           currentTarget.src = 'public/img_not_found.png';
-  //         }}
-  //       />
-  //     </div>
-  //   </div>
-  // ))
-
   return <>
     {isLoading ? (
       <p>Laddar sidan...</p>
     ) : (
       <AnimalCard animals={animals}></AnimalCard>
     )}
-    {/* <>
-      {html}
-    </> */}
-
   </>
 }
 
