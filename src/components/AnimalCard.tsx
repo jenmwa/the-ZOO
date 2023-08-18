@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { IAnimal } from "../models/IAnimal";
-import '../style/animal.scss'
+// import '../style/animal.scss'
 
 interface IAnimalProps {
   animals: IAnimal[]
@@ -15,8 +15,20 @@ export const AnimalCard = ({ animals }: IAnimalProps) => {
     navigate('/animal/'+ animal.id)
   }
 
+  const handleKeyEnter = (e: React.KeyboardEvent, animal:IAnimal) => {
+    if (e.key === 'Enter') {
+      console.log('Enter pressed on: ', animal.name)
+      navigate('/animal/'+ animal.id)
+    }
+  }
+
   const html = animals.map((animal) => (
-    <div key={animal.id} className='animal-card-container' onClick={() => handleClick(animal)}>
+    <div 
+      key={animal.id} 
+      className='animal-card-container' 
+      onClick={() => handleClick(animal)}
+      onKeyDown={(e) => handleKeyEnter(e, animal)}
+      tabIndex={0}>
       <span className='animal-name'>{animal.name}</span>
       <div className='animal-image-container'>
         <img
@@ -34,11 +46,9 @@ export const AnimalCard = ({ animals }: IAnimalProps) => {
 
   return <>
 
-    <p>AnimalCard create show cards!</p>
+    <h1>Våra Djur</h1>
     <p>HUngry/ soon-to-be? eaten?</p>
     {html}
-
-
   </>
 }
 //syfte: djurkort info

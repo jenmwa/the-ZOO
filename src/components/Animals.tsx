@@ -3,11 +3,14 @@ import { IAnimal } from "../models/IAnimal"
 import axios from "axios"
 import '../style/animal.scss'
 import { AnimalCard } from "./AnimalCard"
-import { useAnimalContext } from "./AnimalContext"
+// import { useAnimalContext } from "./AnimalContext"
 
 export const Animals = () => {
 
-  const { animals, setAnimals } = useAnimalContext();
+  // const { animals, setAnimals } = useAnimalContext();
+  const storedAnimals = sessionStorage.getItem('animals') || '[]';
+  console.log(storedAnimals);
+  const [animals, setAnimals] = useState<IAnimal[]>(JSON.parse(storedAnimals));
   const [isLoading, setIsLoading] = useState(true);
 
   //flytta till servicefil 
@@ -59,7 +62,6 @@ export const Animals = () => {
   // ))
 
   return <>
-    <p>Render all AnimalCard in Animals</p>
     {isLoading ? (
       <p>Laddar sidan...</p>
     ) : (

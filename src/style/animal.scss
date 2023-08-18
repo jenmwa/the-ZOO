@@ -35,13 +35,28 @@
   margin: 1rem;
 }
 
-.button-back {
+.animal-presentation {
+  border: 1px solid $secondary2;
+  margin-bottom: 2rem;
+  width: 370px;
+  height: 100%;
+}
+
+.button-feed, .button-back {
   background-color: $grey100;
   color: $grey700;
   font-weight: bold;
+
+  &:disabled {
+    color: $grey300;
+  }
 }
 
 .animal-about {
   font-family: $FontHeading;
   font-size: 1.5rem;
+}
+
+.text-bold {
+  font-weight: bold;
 }
