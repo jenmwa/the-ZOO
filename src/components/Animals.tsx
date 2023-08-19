@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { IAnimal } from "../models/IAnimal"
-import axios from "axios"
 import '../style/animal.scss'
 import { AnimalCard } from "./AnimalCard"
+import { getAnimalAPI } from "../service/AnimalService"
 // import { useAnimalContext } from "./AnimalContext"
 
 export const Animals = () => {
@@ -24,15 +24,17 @@ export const Animals = () => {
   }, [])
   //få bort denna dependency array med villkor
 
-  //flytta till servicefil 
-  useEffect(() => {
+useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get('https://animals.azurewebsites.net/api/animals')
-        console.log(response.data)
-        sessionStorage.setItem('animals', JSON.stringify(response.data));
-        setAnimals(response.data)
-        setIsLoading(false)
+        const response = await getAnimalAPI();
+        if (response) {
+          sessionStorage.setItem('animals', JSON.stringify(response));
+          setAnimals(response)
+          setIsLoading(false)
+        } else {
+          setIsLoading(false)
+        }
       } catch (error) {
         console.error('error', error);
         setIsLoading(false);

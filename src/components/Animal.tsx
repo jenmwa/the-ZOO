@@ -12,8 +12,8 @@ export const Animal = () => {
   const [animals, setAnimals] = useState<IAnimal[]>(JSON.parse(storedAnimals));
 
 
-  const { id } = useParams();
-  const idToNumber = Number(id);
+  const { id } = useParams<{ id: string }>();
+  const idToNumber: number = Number(id);
 
   const findAnimal = animals.find((animal) => animal.id === idToNumber)
   const navigate = useNavigate();
@@ -29,7 +29,6 @@ export const Animal = () => {
 
     const updatedAnimalsWithFedTime = setFedTime(animal, updatedAnimals);
 
-
     setAnimals(updatedAnimalsWithFedTime);
     sessionStorage.setItem('animals', JSON.stringify(updatedAnimalsWithFedTime));
     console.log(animals);
@@ -44,43 +43,12 @@ export const Animal = () => {
     console.log('click to feed ' + animal.name + ' ' + newDate);
 
     const updatedAnimals = animalsArray.map((a) =>
-    a.id === animal.id ? { ...a, lastFed: newDate } : a
-  );
-  return updatedAnimals;
+      a.id === animal.id ? { ...a, lastFed: newDate } : a
+    );
+    return updatedAnimals;
   }
 
-
-  // const html = (
-  //   <div className='animal-presentation'>
-  //     <div className='animal-presentation-header'>
-  //       <button className='button-back material-symbols-outlined' onClick={handleBack}>arrow_back_ios_new</button>
-  //     </div>
-  //     <p>{id}</p>
-  //     <span className='animal-name'>{findAnimal?.name}</span>
-  //     <p><span className='text-bold'>Födelseår:</span> {findAnimal?.yearOfBirth}</p>
-
-  //     <div className='animal-image-container'>
-  //       <img
-  //         src={findAnimal?.imageUrl}
-  //         alt={findAnimal?.name}
-  //         onError={({ currentTarget }) => {
-  //           currentTarget.onerror = null;
-  //           currentTarget.src = '/img_not_found.png';
-  //         }} />
-  //     </div>
-  //     <div className='animal-text-container animal-short-desc'>
-  //       <span className='animal-about'>OM</span>
-  //       <p>{findAnimal?.latinName}</p>
-  //       <p>{findAnimal?.longDescription}</p>
-  //       <p><span className='text-bold'>Mediciner:</span> {findAnimal?.medicine}</p>
-  //       <p><span className='text-bold'>Senast matad:</span> {findAnimal?.lastFed}</p>
-  //       <button className='button-back' onClick={() => clickToFeed(findAnimal!)}>MATA</button>
-  //     </div>
-  //   </div>
-  // )
-
   return <>
-    {/* {html} */}
     {findAnimal ? (
       <AnimalDetails
         animal={findAnimal}
