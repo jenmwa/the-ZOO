@@ -15,7 +15,7 @@ export const AnimalDetails = ({ animal, handleBack, clickToFeed }: IAnimalProps)
         <button className='button-back material-symbols-outlined' onClick={handleBack}>arrow_back_ios_new</button>
       </div>
       <span className='animal-name'>{animal?.name}</span>
-      <p>Födelseår: {animal?.yearOfBirth}</p>
+      <p><span className='text-bold'>Födelseår:</span> {animal?.yearOfBirth}</p>
 
       <div className='animal-image-container'>
         <img
@@ -28,16 +28,20 @@ export const AnimalDetails = ({ animal, handleBack, clickToFeed }: IAnimalProps)
       </div>
       <div className='animal-text-container animal-short-desc'>
         <span className='animal-about'>OM</span>
-        <p>{animal?.latinName}</p>
+        <p><span className='text-bold'>Latinskt namn: </span>{animal?.latinName}</p>
         <p>{animal?.longDescription}</p>
-        <p>Mediciner: {animal?.medicine}</p>
-        <p>Senast matad: {animal?.lastFed}</p>
+        <p><span className='text-bold'>Mediciner:</span> {animal?.medicine}</p>
+        <p><span className='text-bold'>Senast matad:</span> {animal?.lastFed}</p>
         <button
           className='button-feed'
           onClick={() => clickToFeed(animal)}
           disabled={animal.isFed}
         >MATA</button>
-      </div>
+        </div>
+        <div className='animal-presentation-footer' onClick={handleBack}>
+          <button className='button-back material-symbols-outlined' onClick={handleBack}>arrow_back_ios_new </button>
+        </div>
+      
     </div>
   )
 

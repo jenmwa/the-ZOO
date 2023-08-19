@@ -1,15 +1,33 @@
 @import '../style/variables.scss';
 
+
 .animal-card-container {
   border: 1px solid $secondary2;
   margin-bottom: 2rem;
   width: 370px;
   height: 100%;
 
+  &.isFed {
+    outline: 4px solid  green;
+  }
+
+  &.isHungry {
+    outline: 8px solid  red;
+
+    .span {
+      font-weight: bold;
+    }
+  }
+
   &:hover, &:active {
     cursor: pointer;
-    outline: 4px solid  $secondary1;
+    outline: 6px solid  $secondary1;
   }
+    
+  &:focus,
+  &:focus-visible {
+  outline: 4px solid blue;;
+}
 }
 
 .animal-name {
@@ -18,10 +36,21 @@
   text-transform: uppercase;
 }
 
+.animal-isFed-status {
+  outline: 1px solid $secondary2;
+
+  span {
+    outline: none;
+    padding: 0.4em 4em;
+  }
+
+}
+
 .animal-image-container {
   width: 370px;
   height: 400px;
   overflow: hidden;
+  margin-top: 1rem;
 
   img {
     object-fit: cover;
@@ -42,7 +71,20 @@
   height: 100%;
 }
 
-.button-feed, .button-back {
+.animal-presentation-header, .animal-presentation-footer {
+  display: flex;
+}
+
+.button-back {
+  background-color: transparent;
+  color: $grey100;
+  font-weight: bold;
+  padding: 0.4em 0.4em;
+  // position: absolute;
+  // margin-left: 0;
+}
+
+.button-feed {
   background-color: $grey100;
   color: $grey700;
   font-weight: bold;
@@ -59,4 +101,33 @@
 
 .text-bold {
   font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  
+  .animal-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 6rem;
+  }
+
+  .animal-card-container {
+    border: 1px solid $secondary2;
+    margin-bottom: 2rem;
+    width: 300px;
+    height: 700px;
+  }
+  
+  .animal-image-container {
+    width: 300px;
+    height: 400px;
+  
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%
+    }
+  }
+
+
 }

@@ -23,25 +23,30 @@ export const Animal = () => {
   }
 
   const clickToFeed = (animal: IAnimal) => {
-    console.log(animal.name + ' isFed ' + animal.isFed)
     const updatedAnimals = animals.map((a) =>
       a.id === animal.id ? { ...a, isFed: true } : a
     );
 
-    setAnimals(updatedAnimals);
-    sessionStorage.setItem('animals', JSON.stringify(updatedAnimals));
+    const updatedAnimalsWithFedTime = setFedTime(animal, updatedAnimals);
+
+
+    setAnimals(updatedAnimalsWithFedTime);
+    sessionStorage.setItem('animals', JSON.stringify(updatedAnimalsWithFedTime));
     console.log(animals);
-    setFedTime(animal);
+
   }
 
-  const setFedTime = (animal: IAnimal) => {
+  const setFedTime = (animal: IAnimal, animalsArray: IAnimal[]) => {
     const date = new Date();
     console.log(date)
 
     const newDate = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString();
     console.log('click to feed ' + animal.name + ' ' + newDate);
-    animal.isFed = true;
-    console.log(animal.isFed)
+
+    const updatedAnimals = animalsArray.map((a) =>
+    a.id === animal.id ? { ...a, lastFed: newDate } : a
+  );
+  return updatedAnimals;
   }
 
 

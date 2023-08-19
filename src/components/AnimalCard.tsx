@@ -25,11 +25,15 @@ export const AnimalCard = ({ animals }: IAnimalProps) => {
   const html = animals.map((animal) => (
     <div 
       key={animal.id} 
-      className='animal-card-container' 
+      className={'animal-card-container' + (animal.isFed ? ' isFed' : ' isHungry')} 
+      role='button'
       onClick={() => handleClick(animal)}
       onKeyDown={(e) => handleKeyEnter(e, animal)}
       tabIndex={0}>
       <span className='animal-name'>{animal.name}</span>
+      <div className='animal-isFed-status'>
+        <span className='animal-isFed-status span'>{animal.isFed ? 'har fått mat.' : 'behöver bli matad!'}</span>
+      </div>
       <div className='animal-image-container'>
         <img
           src={animal.imageUrl}
@@ -47,8 +51,9 @@ export const AnimalCard = ({ animals }: IAnimalProps) => {
   return <>
 
     <h1>Våra Djur</h1>
-    <p>HUngry/ soon-to-be? eaten?</p>
+    <section className='animal-cards-wrapper'>
     {html}
+    </section>
   </>
 }
 //syfte: djurkort info
