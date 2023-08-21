@@ -5,7 +5,6 @@ import { IAnimal } from '../models/IAnimal';
 import { AnimalDetails } from './AnimalDetails';
 import { useState } from 'react';
 
-
 export const Animal = () => {
   const storedAnimals = sessionStorage.getItem('animals') || '[]';
   console.log(storedAnimals);
@@ -35,12 +34,9 @@ export const Animal = () => {
     setAnimals(updatedAnimalsWithFedTime);
     sessionStorage.setItem('animals', JSON.stringify(updatedAnimalsWithFedTime));
     console.log(animals);
-
   }
 
   const setFedTime = (animal: IAnimal, animalsArray: IAnimal[]) => {
-    // const date = new Date();
-    // console.log(date)
 
     // const newDate = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString();
     const newDate = new Date().toISOString();
@@ -63,6 +59,7 @@ export const Animal = () => {
     ) : (
       <p>Laddar sidan...</p>
     )}
+
   </>
 }
 

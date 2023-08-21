@@ -1,26 +1,32 @@
 import { useEffect, useState } from "react";
 
-export const LastFedStatus = () => {
+
+export const LastFedStatus = ({fedTime, animal}:{fedTime: string, animal:string}) => {
+
 
   const [isFed3HoursAgo, setIsFed3HoursAgo] = useState(false);
-  const fedTime = '2023-08-21T05:38:00.010Z';
+  // const fedTime = '2023-08-21T05:38:00.010Z';
   //tänk den här tiden +2h för att kolla status
 
   const checkTimeDifference = (time: string) => {
     const fedTimeAsDateObject = new Date(time);
-    console.log(fedTimeAsDateObject)
+    fedTimeAsDateObject.setHours(fedTimeAsDateObject.getHours()-2)
+    console.log('fedTimeAsDateObject:', fedTimeAsDateObject)
     const currentTime = new Date();
-    console.log(currentTime)
+    console.log('currentTime', currentTime)
     const timeDifference = currentTime.getTime() - fedTimeAsDateObject.getTime();
     const hoursSinceFed = timeDifference / (60 * 60 * 1000);
 
     if (hoursSinceFed >= 3) {
-      console.log('3h since Food, enable MATA-btn, add CSS- gettingHUNGRY');
+      console.log(animal + ' is 3h since Food, enable MATA-btn, add CSS- gettingHUNGRY');
+      // animal.isFed = false;
       setIsFed3HoursAgo(isFed3HoursAgo)
     }
     if (hoursSinceFed >= 4) {
-      console.log('4h since food, add CSS-class isHUNGRY');
+      console.log(animal + ' is 4h since food, add CSS-class isHUNGRY');
       setIsFed3HoursAgo(isFed3HoursAgo)
+    } else {
+      console.log(animal + ' is fed and happy!' + fedTime)
     }
 
   }
@@ -28,7 +34,6 @@ export const LastFedStatus = () => {
   useEffect(() => {
     checkTimeDifference(fedTime);
   },[])
-  console.log(isFed3HoursAgo);
 
   return null;
     // //göra om mitt string-datum till vanligt datum
