@@ -11,6 +11,14 @@
     outline: 4px solid  green;
   }
 
+  &.gettingHungry {
+    outline: 6px solid  yellow;
+
+    .span {
+      font-style: italic;
+    }
+  }
+
   &.isHungry {
     outline: 8px solid  red;
 
