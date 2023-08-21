@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { IAnimal } from '../models/IAnimal';
 import { AnimalDetails } from './AnimalDetails';
 import { useState } from 'react';
+import { LastFedStatus } from './lastFedStatus';
 
 export const Animal = () => {
   const storedAnimals = sessionStorage.getItem('animals') || '[]';
@@ -38,8 +39,8 @@ export const Animal = () => {
 
   const setFedTime = (animal: IAnimal, animalsArray: IAnimal[]) => {
 
-    // const newDate = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString();
-    const newDate = new Date().toISOString();
+    const newDate = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString();
+    // const newDate = new Date().toISOString();
     console.log('click to feed ' + animal.name + ' ' + newDate);
     console.log(new Date().toISOString());
 
@@ -49,13 +50,24 @@ export const Animal = () => {
     return updatedAnimals;
   }
 
+    const updateAnimalStatus = (updatedAnimal: IAnimal) => {
+    const updatedAnimals = animals.map((animal) =>
+      animal.id === updatedAnimal.id ? updatedAnimal : animal
+    );
+    setAnimals(updatedAnimals);
+  }
+
   return <>
     {findAnimal ? (
+      <>
       <AnimalDetails
         animal={findAnimal}
         handleBack={handleBack}
         clickToFeed={clickToFeed}
       />
+     
+        <LastFedStatus key={findAnimal.id} animal={findAnimal} updatedAnimalStatus={updateAnimalStatus}/>
+      </>
     ) : (
       <p>Laddar sidan...</p>
     )}

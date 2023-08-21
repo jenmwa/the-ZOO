@@ -3,7 +3,7 @@ import { IAnimal } from "../models/IAnimal"
 import '../style/animal.scss'
 import { AnimalCard } from "./AnimalCard"
 import { getAnimalAPI } from "../service/AnimalService"
-import { LastFedStatus } from "./lastFedStatus"
+// import { LastFedStatus } from "./lastFedStatus"
 // import { useAnimalContext } from "./AnimalContext"
 
 export const Animals = () => {
@@ -46,15 +46,22 @@ useEffect(() => {
     }
   })
 
+  // const updateAnimalStatus = (updatedAnimal: IAnimal) => {
+  //   const updatedAnimals = animals.map((animal) =>
+  //     animal.id === updatedAnimal.id ? updatedAnimal : animal
+  //   );
+  //   setAnimals(updatedAnimals);
+  // }
+
   return <>
     {isLoading ? (
       <p>Laddar sidan...</p>
     ) : (
       <>
       <AnimalCard animals={animals}></AnimalCard>
-      {animals.map((animal: IAnimal) => (
-        <LastFedStatus key={animal.id} fedTime={animal.lastFed} animal={animal.name} />
-      ))}
+      {/* {animals.map((animal: IAnimal) => (
+        <LastFedStatus key={animal.id} animal={animal} updatedAnimalStatus={updateAnimalStatus}/>
+      ))} */}
       </>
     )}
   </>
