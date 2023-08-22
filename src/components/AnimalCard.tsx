@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { IAnimal } from "../models/IAnimal";
 import { useEffect } from "react";
+import { calculateHoursSinceFed } from "../functions/timeCalculation";
 
 // import '../style/animal.scss'
 
@@ -17,31 +18,26 @@ export const AnimalCard = ({ animals, setAnimals }: IAnimalProps) => {
   useEffect(() => {
     const updatedAnimals = animals.map((animal) => {
       if (animal){
+      
         const fedTimeAsDateObject = new Date(animal.lastFed);
         fedTimeAsDateObject.setHours(fedTimeAsDateObject.getHours() - 2)
-        console.log('testing:', fedTimeAsDateObject)
-        const currentTime = new Date();
-        console.log('currentTime', currentTime)
-        const timeDifference = currentTime.getTime() - fedTimeAsDateObject.getTime();
-        const hoursSinceFed = timeDifference / (60 * 60 * 1000);
+        const hoursSinceFed = calculateHoursSinceFed(new Date(fedTimeAsDateObject));
+        // console.log('testing:', fedTimeAsDateObject)
+        // const currentTime = new Date();
+        // console.log('currentTime', currentTime)
+        // const timeDifference = currentTime.getTime() - fedTimeAsDateObject.getTime();
+        // const hoursSinceFed = timeDifference / (60 * 60 * 1000);
         
-        if(hoursSinceFed < 3) {
+        if (hoursSinceFed < 3) {
          console.log(animal.name + ' css-class isFed')
         }
         else if (hoursSinceFed >= 3 && hoursSinceFed < 4) {
           console.log(animal.name + ' css-class gettingHungry')
         }
-        else if(hoursSinceFed >= 4) {
+        else if (hoursSinceFed >= 4) {
           console.log(animal.name + ' css-class isHungry');
           return { ...animal, isFed: false };
-          // animal.isFed = false;
-          // sessionStorage.setItem('animals', JSON.stringify(animals))
-          // const updatedAnimal = { ...animal, isFed: false };
-          // console.log( updatedAnimal.name + ' isFed: ' + updatedAnimal.isFed)
-
-        } else {
-          return animal;
-        }
+        } 
       }
       return animal;
     })
