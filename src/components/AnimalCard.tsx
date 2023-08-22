@@ -66,6 +66,7 @@ export const AnimalCard = ({ animals }: IAnimalProps) => {
         <img
           src={animal.imageUrl}
           alt={animal.name}
+         
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
             currentTarget.src = fallbackImg;

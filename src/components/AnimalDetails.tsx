@@ -22,8 +22,10 @@ export const AnimalDetails = ({ animal, handleBack, clickToFeed, disabled }: IAn
 
       <div className='animal-image-container'>
         <img
+          className='animal-image'
           src={animal?.imageUrl}
           alt={animal?.name}
+          width={300}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
             currentTarget.src = fallbackImg;

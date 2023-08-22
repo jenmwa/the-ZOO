@@ -5,12 +5,14 @@ export const Navigation = () => {
   return <>
     <nav className='navigation'>
       <div className='logo-container'>
-        <img src='/logo_light.png' alt='the zoo logo' width={150} />
+          <Link to='/'>
+        <img src='/PNG/logo_light.png' alt='the zoo logo' width={80} />
+        </Link>
       </div>
       <div className='menu'>
         <ul>
           <li><Link to='/'>Hem</Link></li>
-          <li><Link to='/about'>Om oss</Link></li>
+          <li><Link to='/about'>Om</Link></li>
           <li><Link to='/animals'><div>Våra djur</div></Link></li>
         </ul>
       </div>
