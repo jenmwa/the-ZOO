@@ -13,6 +13,7 @@ export const Animals = () => {
   console.log(storedAnimals);
   const [animals, setAnimals] = useState<IAnimal[]>(JSON.parse(storedAnimals));
   const [isLoading, setIsLoading] = useState(true);
+  // const [hoursSinceFed, setHoursSinceFed] = useState<number>(0);
 
   //flytta till servicefil 
   useEffect(() => {
@@ -25,7 +26,7 @@ export const Animals = () => {
   }, [])
   //få bort denna dependency array med villkor
 
-useEffect(() => {
+  useEffect(() => {
     const getData = async () => {
       try {
         const response = await getAnimalAPI();
@@ -46,11 +47,16 @@ useEffect(() => {
     }
   })
 
+
+
   // const updateAnimalStatus = (updatedAnimal: IAnimal) => {
   //   const updatedAnimals = animals.map((animal) =>
   //     animal.id === updatedAnimal.id ? updatedAnimal : animal
   //   );
+
+  //   console.log('we have updated the array')
   //   setAnimals(updatedAnimals);
+  //   sessionStorage.setItem('animals', JSON.stringify(updatedAnimals));
   // }
 
   return <>
@@ -58,10 +64,14 @@ useEffect(() => {
       <p>Laddar sidan...</p>
     ) : (
       <>
-      <AnimalCard animals={animals}></AnimalCard>
-      {/* {animals.map((animal: IAnimal) => (
-        <LastFedStatus key={animal.id} animal={animal} updatedAnimalStatus={updateAnimalStatus}/>
-      ))} */}
+        {/* <AnimalCard animals={animals} hoursSinceFed={hoursSinceFed}></AnimalCard> */}
+        <h1>Våra Djur</h1>
+        <AnimalCard animals={animals} setAnimals={setAnimals}></AnimalCard>
+        {/* {animals.map((animal: IAnimal) => (
+          // <LastFedStatus key={animal.id} animal={animal} updatedAnimalStatus={updateAnimalStatus} setHoursSinceFed={setHoursSinceFed}/>
+          // <LastFedStatus key={animal.id} animal={animal} updatedAnimalStatus={updateAnimalStatus} />
+
+        ))}*/}
       </>
     )}
   </>

@@ -4,13 +4,15 @@ interface IAnimalProps {
   animal: IAnimal;
   handleBack: () => void;
   clickToFeed: (animal: IAnimal) => void;
+  disabled: boolean, 
 }
 
-export const AnimalDetails = ({ animal, handleBack, clickToFeed }: IAnimalProps) => {
+export const AnimalDetails = ({ animal, handleBack, clickToFeed, disabled }: IAnimalProps) => {
   console.log(animal.isFed)
 
+
   const html = (
-    <div className='animal-presentation'>
+    <div className='animal-presentation' >
       <div className='animal-presentation-header'>
         <button className='button-back material-symbols-outlined' onClick={handleBack}>arrow_back_ios_new</button>
       </div>
@@ -35,13 +37,13 @@ export const AnimalDetails = ({ animal, handleBack, clickToFeed }: IAnimalProps)
         <button
           className='button-feed'
           onClick={() => clickToFeed(animal)}
-          disabled={animal.isFed}
+          disabled={disabled}
         >MATA</button>
-        </div>
-        <div className='animal-presentation-footer' onClick={handleBack}>
-          <button className='button-back material-symbols-outlined' onClick={handleBack}>arrow_back_ios_new </button>
-        </div>
-      
+      </div>
+      <div className='animal-presentation-footer' onClick={handleBack}>
+        <button className='button-back material-symbols-outlined' onClick={handleBack}>arrow_back_ios_new </button>
+      </div>
+
     </div>
   )
 
