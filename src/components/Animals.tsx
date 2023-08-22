@@ -66,7 +66,7 @@ export const Animals = () => {
       <>
         {/* <AnimalCard animals={animals} hoursSinceFed={hoursSinceFed}></AnimalCard> */}
         <h1>Våra Djur</h1>
-        <AnimalCard animals={animals} setAnimals={setAnimals}></AnimalCard>
+        <AnimalCard animals={animals} ></AnimalCard>
         {/* {animals.map((animal: IAnimal) => (
           // <LastFedStatus key={animal.id} animal={animal} updatedAnimalStatus={updateAnimalStatus} setHoursSinceFed={setHoursSinceFed}/>
           // <LastFedStatus key={animal.id} animal={animal} updatedAnimalStatus={updateAnimalStatus} />

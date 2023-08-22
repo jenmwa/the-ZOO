@@ -5,15 +5,12 @@ import { router } from './Router'
 import { AnimalProvider } from './components/AnimalContext'
 
 function App() {
-  // const [count, setCount] = useState(0)
 
   return (
     <>
-    <AnimalProvider>
-      <RouterProvider router={router}></RouterProvider>
-    </AnimalProvider>
-   
-   
+      <AnimalProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </AnimalProvider>
     </>
   )
 }

@@ -17,7 +17,7 @@ export const Animal = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (findAnimal){
+    if (findAnimal) {
       const fedTimeAsDateObject = new Date(findAnimal.lastFed);
       fedTimeAsDateObject.setHours(fedTimeAsDateObject.getHours() - 2)
       const hoursSinceFed = calculateHoursSinceFed(new Date(fedTimeAsDateObject));
@@ -28,8 +28,8 @@ export const Animal = () => {
       // console.log('currentTime', currentTime)
       // const timeDifference = currentTime.getTime() - fedTimeAsDateObject.getTime();
       // const hoursSinceFed = timeDifference / (60 * 60 * 1000);
-      
-      if(hoursSinceFed < 3) {
+
+      if (hoursSinceFed < 3) {
         setDisabled(true)
       }
       else if (hoursSinceFed >= 3 && hoursSinceFed < 4) {
@@ -37,8 +37,8 @@ export const Animal = () => {
       }
 
     }
-   
-  },[])
+
+  }, [])
 
   const handleBack = () => {
     navigate('/animals');
@@ -70,16 +70,12 @@ export const Animal = () => {
 
   return <>
     {findAnimal ? (
-      <>
-        <AnimalDetails
-          animal={findAnimal}
-          handleBack={handleBack}
-          clickToFeed={clickToFeed}
-          disabled={disabled}
-        />
-
-        {/* <LastFedStatus key={findAnimal.id} animal={findAnimal} updatedAnimalStatus={updateAnimalStatus}/> */}
-      </>
+      <AnimalDetails
+        animal={findAnimal}
+        handleBack={handleBack}
+        clickToFeed={clickToFeed}
+        disabled={disabled}
+      />
     ) : (
       <p>Laddar sidan...</p>
     )}

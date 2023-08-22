@@ -12,8 +12,8 @@ export const Home = () => {
         </div>
         <p>this will be our marketing message</p>
         <Link to='/animals'>
-        <button>Våra djur</button>
-          </Link>
+          <button>Våra djur</button>
+        </Link>
       </div>
     </div>
   </>

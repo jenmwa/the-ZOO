@@ -4,12 +4,11 @@ interface IAnimalProps {
   animal: IAnimal;
   handleBack: () => void;
   clickToFeed: (animal: IAnimal) => void;
-  disabled: boolean, 
+  disabled: boolean,
 }
 
 export const AnimalDetails = ({ animal, handleBack, clickToFeed, disabled }: IAnimalProps) => {
   console.log(animal.isFed)
-
 
   const html = (
     <div className='animal-presentation' >
@@ -26,6 +25,7 @@ export const AnimalDetails = ({ animal, handleBack, clickToFeed, disabled }: IAn
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
             currentTarget.src = '/img_not_found.png';
+            //global variabel?
           }} />
       </div>
       <div className='animal-text-container animal-short-desc'>
