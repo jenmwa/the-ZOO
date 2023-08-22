@@ -8,12 +8,14 @@ interface IAnimalProps {
 }
 
 export const AnimalDetails = ({ animal, handleBack, clickToFeed, disabled }: IAnimalProps) => {
-  console.log(animal.isFed)
+  const fallbackImg = '/img_not_found.png'
 
   const html = (
     <div className='animal-presentation' >
       <div className='animal-presentation-header'>
-        <button className='button-back material-symbols-outlined' onClick={handleBack}>arrow_back_ios_new</button>
+        <button 
+          className='button-back material-symbols-outlined' 
+          onClick={handleBack}>arrow_back_ios_new</button>
       </div>
       <span className='animal-name'>{animal?.name}</span>
       <p><span className='text-bold'>Födelseår:</span> {animal?.yearOfBirth}</p>
@@ -24,8 +26,7 @@ export const AnimalDetails = ({ animal, handleBack, clickToFeed, disabled }: IAn
           alt={animal?.name}
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
-            currentTarget.src = '/img_not_found.png';
-            //global variabel?
+            currentTarget.src = fallbackImg;
           }} />
       </div>
       <div className='animal-text-container animal-short-desc'>
@@ -40,10 +41,13 @@ export const AnimalDetails = ({ animal, handleBack, clickToFeed, disabled }: IAn
           disabled={disabled}
         >MATA</button>
       </div>
-      <div className='animal-presentation-footer' onClick={handleBack}>
-        <button className='button-back material-symbols-outlined' onClick={handleBack}>arrow_back_ios_new </button>
+      <div 
+        className='animal-presentation-footer' 
+        onClick={handleBack}>
+        <button 
+          className='button-back material-symbols-outlined' 
+          onClick={handleBack}>arrow_back_ios_new </button>
       </div>
-
     </div>
   )
 
