@@ -19,7 +19,6 @@ export const Animals = () => {
       setIsLoading(false)
     }
   }, [])
-  //få bort denna dependency array med villkor
 
   useEffect(() => {
     const getData = async () => {

@@ -8,7 +8,6 @@ import { calculateHoursSinceFed } from '../functions/timeCalculation';
 export const Animal = () => {
   const [disabled, setDisabled] = useState(false);
   const storedAnimals = sessionStorage.getItem('animals') || '[]';
-  console.log(storedAnimals);
   const [animals, setAnimals] = useState<IAnimal[]>(JSON.parse(storedAnimals));
 
   const { id } = useParams<{ id: string }>();
@@ -29,7 +28,6 @@ export const Animal = () => {
       }
     }
   }, [findAnimal])
-  //tillagt! 230822 sista. se så allt fungerar imorn!
 
   const handleBack = () => {
     navigate('/animals');
