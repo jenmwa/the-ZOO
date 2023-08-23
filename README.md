@@ -33,11 +33,11 @@ Hämta ett API med djurinfo, spara ner infon, rendera ut djur och beroende på h
 
 ## Tekniker
 
-Vite
-React
-TypeScripe
-ReactRouter
-Sass
+Vite <br>
+React<br>
+TypeScripe<br>
+ReactRouter<br>
+Sass<br>
 
 
 
