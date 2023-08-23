@@ -46,7 +46,6 @@ export const AnimalCard = ({ animals }: IAnimalProps) => {
 
   const html = animals.map((animal) => {
     const fedTimeAsDateObject = new Date(animal.lastFed);
-    fedTimeAsDateObject.setHours(fedTimeAsDateObject.getHours() - 2)
     const hoursSinceFed = calculateHoursSinceFed(new Date(fedTimeAsDateObject));
     const feedingStatusClass = getFeedingStatusClass(hoursSinceFed);
     const feedingStatusText = getFeedingStatusText(hoursSinceFed)
@@ -66,7 +65,6 @@ export const AnimalCard = ({ animals }: IAnimalProps) => {
         <img
           src={animal.imageUrl}
           alt={animal.name}
-         
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
             currentTarget.src = fallbackImg;

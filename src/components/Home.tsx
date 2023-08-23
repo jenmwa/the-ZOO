@@ -11,7 +11,7 @@ export const Home = () => {
         <div className='logo-container'>
           <img src='/logo_light.png' alt='the zoo logo' width={375} />
         </div>
-        <p>this will be our marketing message</p>
+        <p>AKA<br></br>Djuren behöver mat!</p>
         <Link to='/animals'>
           <button>Våra djur</button>
         </Link>

@@ -19,7 +19,6 @@ export const Animal = () => {
   useEffect(() => {
     if (findAnimal) {
       const fedTimeAsDateObject = new Date(findAnimal.lastFed);
-      fedTimeAsDateObject.setHours(fedTimeAsDateObject.getHours() - 2)
       const hoursSinceFed = calculateHoursSinceFed(new Date(fedTimeAsDateObject));
 
       if (hoursSinceFed < 3) {
@@ -49,7 +48,7 @@ export const Animal = () => {
   }
 
   const setFedTime = (animal: IAnimal, animalsArray: IAnimal[]) => {
-    const newDate = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString();
+    const newDate = new Date().toLocaleString('sv-SE')
     const updatedAnimals = animalsArray.map((a) =>
       a.id === animal.id ? { ...a, lastFed: newDate } : a
     );
