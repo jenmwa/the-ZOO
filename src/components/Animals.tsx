@@ -4,8 +4,13 @@ import '../style/animal.scss'
 import { AnimalCard } from "./AnimalCard"
 import { getAnimalAPI } from "../service/AnimalService"
 import { Loader } from "./Loader"
+// import { useLoaderData } from "react-router-dom"
+// import { IAnimalLoader } from "../loaders/animalsLoader"
 
 export const Animals = () => {
+
+  // const { animalList } = useLoaderData() as IAnimalLoader
+  // console.log(animalList);
 
   const storedAnimals = sessionStorage.getItem('animals') || '[]';
   const [animals, setAnimals] = useState<IAnimal[]>(JSON.parse(storedAnimals));

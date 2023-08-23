@@ -4,6 +4,7 @@ import { Animals } from "./components/Animals";
 import { Animal } from "./components/Animal";
 import { Layout } from "./components/Layout";
 import { About } from "./components/About";
+import { animalsLoader } from "./loaders/animalsLoader";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
       {
         path: '/animals',
         element: <Animals></Animals>,
+        loader: animalsLoader,
       },
       {
         path: '/animal/:id',
