@@ -3,6 +3,7 @@ import { IAnimal } from "../models/IAnimal"
 import '../style/animal.scss'
 import { AnimalCard } from "./AnimalCard"
 import { getAnimalAPI } from "../service/AnimalService"
+import { Loader } from "./Loader"
 
 export const Animals = () => {
 
@@ -42,7 +43,7 @@ export const Animals = () => {
 
   return <>
     {isLoading ? (
-      <p>Laddar sidan...</p>
+      <Loader></Loader>
     ) : (
       <>
         <h1>Våra Djur</h1>

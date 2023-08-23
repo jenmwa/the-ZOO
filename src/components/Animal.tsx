@@ -4,6 +4,7 @@ import { IAnimal } from '../models/IAnimal';
 import { AnimalDetails } from './AnimalDetails';
 import { useEffect, useState } from 'react';
 import { calculateHoursSinceFed } from '../functions/timeCalculation';
+import { Loader } from './Loader';
 
 export const Animal = () => {
   const [disabled, setDisabled] = useState(false);
@@ -62,7 +63,7 @@ export const Animal = () => {
         disabled={disabled}
       />
     ) : (
-      <p>Laddar sidan...</p>
+      <Loader></Loader>
     )}
 
   </>
