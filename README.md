@@ -40,4 +40,10 @@ ReactRouter<br>
 Sass<br>
 
 
+## Köra igång projektet
+```
+npm run dev
+```
+
+
 
