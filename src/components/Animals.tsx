@@ -7,7 +7,6 @@ import { getAnimalAPI } from "../service/AnimalService"
 export const Animals = () => {
 
   const storedAnimals = sessionStorage.getItem('animals') || '[]';
-  console.log(storedAnimals);
   const [animals, setAnimals] = useState<IAnimal[]>(JSON.parse(storedAnimals));
   const [isLoading, setIsLoading] = useState(true);
 

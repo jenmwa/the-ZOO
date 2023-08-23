@@ -13,13 +13,11 @@ export const AnimalCard = ({ animals }: IAnimalProps) => {
   const fallbackImg = '/img_not_found.png'
 
   const handleClick = (animal: IAnimal) => {
-    console.log('click on: ', animal.id);
     navigate('/animal/'+ animal.id)
   }
 
   const handleKeyEnter = (e: React.KeyboardEvent, animal:IAnimal) => {
     if (e.key === 'Enter') {
-      console.log('Enter pressed on: ', animal.name)
       navigate('/animal/'+ animal.id)
     }
   }
