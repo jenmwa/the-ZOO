@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Animals } from "./components/Animals";
 import { Animal } from "./components/Animal";
@@ -6,30 +6,29 @@ import { Layout } from "./components/Layout";
 import { About } from "./components/About";
 import { animalsLoader } from "./loaders/animalsLoader";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
-    path: '/',
+    path: "/",
     element: <Layout></Layout>,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home></Home>,
         index: true,
       },
       {
-        path: '/about',
+        path: "/about",
         element: <About></About>,
       },
       {
-        path: '/animals',
+        path: "/animals",
         element: <Animals></Animals>,
         loader: animalsLoader,
       },
       {
-        path: '/animal/:id',
-        element: <Animal></Animal>
-      }
-    ]
+        path: "/animal/:id",
+        element: <Animal></Animal>,
+      },
+    ],
   },
-
-])
+]);
